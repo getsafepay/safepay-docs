@@ -5,5 +5,5 @@ Welcome to the official repository for Safepay documentation. We will continue t
 ## Index
 
 ### Webhooks
-* 01 - [Introduction](01-webhooks-intro.md)
-* 02 - [Signature Verification and payloads](02-webhooks-payload.md)
+* 01 - [Introduction](webhooks/01-webhooks-intro.md)
+* 02 - [Signature Verification and payloads](webhooks/02-webhooks-payload.md)
