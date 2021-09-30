@@ -9,10 +9,13 @@ Webhooks can be configured on the Safepay merchant dashboard fairly easily. Webh
 
 To enable webhooks for your account, log in to your dashboard, navigate to the Webhooks page and click on the `Enable` button. You can access this from the Account dropdown menu on the top right.
 
-<img
-  src="https://storage.googleapis.com/safepay-docs/webhooks-enable.gif"
-  alt="Enable webhooks"
-/>
+<p align="center">
+  <img
+    src="https://storage.googleapis.com/safepay-docs/webhooks-enable.gif"
+    alt="Enable webhooks"
+    width="75%"
+  />
+</p>
 
 ## Adding and Updating an endpoint
 
@@ -21,10 +24,13 @@ To configure an endpoint that will receive notifications, you can add it to your
 
 If you ever change the endpoint URL on your server you can update it using the interface.
 
-<img
-  src="https://storage.googleapis.com/safepay-docs/webhooks-create-endpoint.gif"
-  alt="Adding and Updating endpoint"
-/>
+<p align="center">
+  <img
+    src="https://storage.googleapis.com/safepay-docs/webhooks-create-endpoint.gif"
+    alt="Adding and Updating endpoint"
+    width="75%"
+  />
+</p>
 
 ## Subscribe to events
 
@@ -36,10 +42,13 @@ Currently, Safepay supports the following events:
 
 Your endpoint can subscribe to both events or a single event depending on how you have configured your server to react to events. Some developers prefer to handle all events in a single endpoint while others prefer to keep separate endpoints for each event.
 
-<img
-  src="https://storage.googleapis.com/safepay-docs/webhooks-subscribe.gif"
-  alt="Subscribe to an event"
-/>
+<p align="center">
+  <img
+    src="https://storage.googleapis.com/safepay-docs/webhooks-subscribe.gif"
+    alt="Subscribe to an event"
+    width="75%"
+  />
+</p>
 
 ## View your shared secret
 
@@ -47,16 +56,22 @@ Safepay signs the webhook events it sends to your endpoints by including a signa
 
 To verify the signature you need to store your shared secret on your server. You can access the shared secret using the interface
 
-<img
-  src="https://storage.googleapis.com/safepay-docs/webhooks-view-shared-secret.gif"
-  alt="View shared secret"
-/>
+<p align="center">
+  <img
+    src="https://storage.googleapis.com/safepay-docs/webhooks-view-shared-secret.gif"
+    alt="View shared secret"
+    width="75%"
+  />
+</p>
 
 ## Delete endpoint
 
 If you ever need to stop receiving events you can either unsubscribe from all events for that endpoint or delete the endpoint entirely. To delete the endpoint, navigate to the webhooks page on the interface, find the endpoint to delete and confirm deletion.
 
-<img
-  src="https://storage.googleapis.com/safepay-docs/webhooks-delete-endpoint.gif"
-  alt="Delete endpoint"
-/>
+<p align="center">
+  <img
+    src="https://storage.googleapis.com/safepay-docs/webhooks-delete-endpoint.gif"
+    alt="Delete endpoint"
+    width="75%"
+  />
+</p>
