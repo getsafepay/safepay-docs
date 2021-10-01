@@ -31,8 +31,10 @@ var payload = {
         source: "shopify"
       }
     },
-    created_at: "2021-09-29T12:00:40Z",
-    updated_at: "2021-09-29T12:00:40Z"
+    delivery_attempts: 1,
+    resource: "notification",
+    next_attempt_at: "2021-10-01T09:05:33Z",
+    created_at: "2021-09-29T12:00:40Z"
 };
 
 const data = Buffer.from(JSON.stringify(payload));
@@ -80,8 +82,10 @@ Sample payloads for each of these events are shown below.
             "source":"shopify"
          }
       },
-      "created_at":"2021-09-20T07:12:21Z",
-      "updated_at":"2021-09-20T07:12:21Z"
+      "delivery_attempts":1,
+      "resource":"notification",
+      "next_attempt_at":"2021-10-01T09:05:33Z",
+      "created_at":"2021-10-01T09:05:34Z"
    }
 }
 ```
@@ -107,8 +111,10 @@ Sample payloads for each of these events are shown below.
             "source": "shopify"
          }
       },
-      "created_at":"2021-09-20T07:12:21Z",
-      "updated_at":"2021-09-20T07:12:21Z"
+      "delivery_attempts":1,
+      "resource":"notification",
+      "next_attempt_at":"2021-10-01T09:05:33Z",
+      "created_at":"2021-10-01T09:05:34Z"
    }
 }
 ```
@@ -127,8 +133,10 @@ Sample payloads for each of these events are shown below.
          "intent":"PAYFAST",
          "message":"55 : Incorrect OTP"
       },
-      "created_at":"2021-09-28T17:23:34Z",
-      "updated_at":"2021-09-28T17:23:34Z"
+      "delivery_attempts":1,
+      "resource":"notification",
+      "next_attempt_at":"2021-10-01T09:05:33Z",
+      "created_at":"2021-10-01T09:05:34Z"
    }
 }
 ```
