@@ -19,6 +19,7 @@ var payload = {
     endpoint: "http://127.0.0.1:9000",
     notification: {
       tracker: "tracker_c5a5apsbcv41om3fg0u0",
+      reference: "514087",
       intent: "PAYFAST",
       fee: "4.92",
       net: "145.08",
@@ -70,6 +71,7 @@ Sample payloads for each of these events are shown below.
       "endpoint":"https://example.com/listener",
       "notification":{
          "tracker":"track_gfdkjg80-4knkjnlhknjn9-klnk9knn",
+         "reference": "514087",
          "intent":"PAYFAST",
          "fee":"4.92",
          "net":"145.08",
@@ -131,7 +133,11 @@ Sample payloads for each of these events are shown below.
       "notification":{
          "tracker":"track_5b694027-7947-4187-bbaa-8585a07c0cbc",
          "intent":"PAYFAST",
-         "message":"55 : Incorrect OTP"
+         "message":"55 : Incorrect OTP",
+         "metadata": {
+            "order_id": "XG102312",
+            "source": "shopify"
+         }
       },
       "delivery_attempts":1,
       "resource":"notification",
