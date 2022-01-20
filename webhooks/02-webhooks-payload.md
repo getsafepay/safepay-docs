@@ -7,7 +7,9 @@ This guide goes into further detail on how to process a webhook payload for an e
 
 ## How to verify the signature
 
-Safepay will attach the signature to the request via the `X-SFPY-Signature` header. In order to verify that the request is indeed from Safepay, you should reconstruct the signature using your webhook secret. This should match the signature in the request. A demonstration in `node.js` is outlined below:
+Safepay will attach the signature to the request via the `X-SFPY-Signature` header. In order to verify that the request is indeed from Safepay, you should reconstruct the signature using your webhook secret. This should match the signature in the request. Samples are presented below:
+
+### node
 
 ```
 const crypto = require('crypto');
@@ -48,7 +50,60 @@ const hash = crypto.createHmac('sha512', secret)
 
 console.log(hash);
 ```
+### php
 
+```
+<?php
+
+//Laravel implementation for Safepay webhooks
+function safepay_notification(Request $request) {
+
+   $request_all = $request->all();
+   $request_data = $request_all['data'];
+
+   $data['payment']  = 'SafePay';
+   $data['body']     = json_encode($request_data);
+
+   \DB::table('payment_logs')->insert($data);
+
+   $event_type = $request_data['type']; //payment:created, error:occurred
+   $x_sfpy_signature = $request->header('x-sfpy-signature');
+   $web_hook_share_secret = config('safepay.webhook_share_secret_key');
+   $signature_2 = hash_hmac('sha512',json_encode($request_data,JSON_UNESCAPED_SLASHES), $web_hook_share_secret);
+
+   if ( $signature_2  !== $x_sfpy_signature ) {
+         return  $this->response([
+            'status' => false,
+            'dataSet' => [],
+               ], 
+            self::HTTP_OK // HTTP_UNAUTHORIZED
+      );
+   }
+
+   $order_metadata = $request_data['notification']['metadata']['order_id']??'';
+   if( empty($order_metadata) ) {
+         return  $this->response([
+            'status' => false,
+            'dataSet' => [],
+               ], 
+            self::HTTP_OK // HTTP_UNAUTHORIZED
+      );
+   }
+
+   if( $event_type == 'payment:created') {
+      $safepay_reference_code = $request_data['notification']['reference'];
+   }else { //error:occured
+      //Add Note.
+   }
+   
+   return  $this->response([
+      'status' => TRUE,
+      'dataSet' => [],
+            ], 
+      self::HTTP_OK
+   );
+}
+```
 
 ## Events
 
